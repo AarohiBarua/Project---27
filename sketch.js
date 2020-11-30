@@ -3,21 +3,19 @@ const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
+const Constraint = Matter.Constraint;
 
-function preload()
-{
-	
-}
+var engine,world;
+var stand;
+var chain,ball;
 
 function setup() {
-	createCanvas(800, 700);
-
-
-	engine = Engine.create();
+	var canvas = createCanvas(1200, 400);
+    engine = Engine.create();
 	world = engine.world;
 
-	//Create the Bodies Here.
-
+	ball = new Ball(600,200,40,40);
+	chain = new Chain(ball.body);
 
 	Engine.run(engine);
   
@@ -25,8 +23,11 @@ function setup() {
 
 
 function draw() {
-  rectMode(CENTER);
   background(0);
+  Engine.update(engine);
+  ball.display();
+  
+
   
   drawSprites();
  
