@@ -1,8 +1,12 @@
 class Ball{
-    constructor(x,y){
-        super(x,y,50,50);
+    constructor(x,y,width,height){
+        this.x = x;
+        this.y = y;
+        this.height = width;
+        this.width = height;
     }
     display(){
+       
         this.body.position.x = mouseX;
         this.body.position.y = mouseY;
         super.display();
